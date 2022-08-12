@@ -1,5 +1,9 @@
 # .github/workflows/sql-workflow.yml
-on: [push]
+on:
+ workflow_dispatch:
+ push:
+   branches:
+     - master
 
 jobs:
   build:
