@@ -36,4 +36,3 @@ INSERT INTO [dbo].[Product]
            ,1
            ,1
            ,'2022-08-15'
-GO
