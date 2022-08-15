@@ -1,3 +1,4 @@
+/*
 CREATE TABLE [dbo].[Product](
 	[ProductID] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	[Name] [nvarchar](100) NOT NULL,
@@ -11,3 +12,28 @@ CREATE TABLE [dbo].[Product](
 	[ProductModelID] [int] NULL,
 	[ModifiedDate] [datetime] NOT NULL
 )
+*/
+
+INSERT INTO [dbo].[Product]
+           ([Name]
+           ,[ProductNumber]
+           ,[Color]
+           ,[StandardCost]
+           ,[ListPrice]
+           ,[Size]
+           ,[Weight]
+           ,[ProductCategoryID]
+           ,[ProductModelID]
+           ,[ModifiedDate])
+     VALUES
+           ('AAA'
+           ,'0001'
+           ,'Red'
+           ,10
+           ,15
+           ,'1'
+           ,100
+           ,1
+           ,1
+           ,'2022/08/15'
+GO
