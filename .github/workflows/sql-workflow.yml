@@ -9,14 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Read package.json
-    - id: package
-    - uses: juliangruber/read-file-action@v1
-      with:
-       path: ./sqlscripts/createtable.sql
-
-    - name: Echo package.json
-      run: echo "${{ steps.package.outputs.content }}" 
     - uses: actions/checkout@v1
     - uses: azure/login@v1                            # Azure login required to add a temporary firewall rule
       with:
@@ -25,7 +17,4 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-        #sql-file: './sqlscripts/*.sql'
-    
-   
-        
+        sql-file: './sqlscripts/*.sql'
