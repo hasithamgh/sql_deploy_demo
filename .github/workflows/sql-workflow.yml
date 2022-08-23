@@ -18,3 +18,12 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
         sql-file: './sqlscripts/*.sql'
+        
+    - name: Read file contents
+      id: read_file
+      uses: andstor/file-reader-action@v1
+      with:
+        path: "./sqlscripts/createtable.sql"
+
+    - name: File contents
+      run: echo "${ steps.read_file.outputs.contents }"
