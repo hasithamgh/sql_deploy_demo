@@ -10,12 +10,10 @@ $Command = New-Object System.Data.SQLClient.SQLCommand
 $Command.Connection = $Connection
 foreach($Name in $studentName){
   $insertquery="
-  INSERT INTO $tableName
-           ([Fname]
-           ,[Lname])
-     VALUES
-           ('$Name'
-           ,'$standard')"
+  UPDATE [dbo].[Demotbl]
+   SET [Fname] = '$Name'
+      ,[Lname] = ''$standard'
+ WHERE ID = 1"
   $Command.CommandText = $insertquery
   $Command.ExecuteNonQuery()
 }
