@@ -12,7 +12,7 @@ foreach($Name in $studentName){
   $insertquery="
   UPDATE [dbo].[Demotbl]
    SET [Fname] = '$Name'
-      ,[Lname] = ''$standard'
+      ,[Lname] = '$standard'
  WHERE ID = 1"
   $Command.CommandText = $insertquery
   $Command.ExecuteNonQuery()
