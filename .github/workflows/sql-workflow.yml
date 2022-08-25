@@ -10,20 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: azure/login@v1                            # Azure login required to add a temporary firewall rule
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - uses: azure/sql-action@v1.3
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-        connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-        sql-file: './sqlscripts/*.sql'
-        
-    - name: Read file contents
-      id: read_file
-      uses: andstor/file-reader-action@v1
-      with:
-        path: "./sqlscripts/createtable.sql"
-
-    - name: File contents
-      run: echo "${ steps.read_file.outputs.contents }"
+    - name: Script
+      run: ./script.ps1
+      shell: pwsh
