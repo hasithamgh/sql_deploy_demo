@@ -32,7 +32,7 @@ $insertquery="
   UPDATE [dbo].[Demotbl]
    SET [Fname] = '$row.Fname'
       ,[Lname] = '$row.Lname'
- WHERE ID = $row.ID"
+ WHERE ID = 1"
   $Command.CommandText = $insertquery
   $Command.ExecuteNonQuery()
 
