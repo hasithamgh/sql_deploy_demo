@@ -1,12 +1,16 @@
 #import CSV data using Import-CSV cmdlet
 #specify path
-$path = "./csv/data.csv"
+$path = "../csv/data.csv"
 #import csv file and specify specific columns you want to import using -Header 
 $file = Import-Csv $path -Delimiter "," 
 #$file
 #loop all the rows in file
 foreach ($row in $file)
 {
+        Write-Host "---------------------------------------------"
+        Write-Host $row.Fname
+        Write-Host $row.Lname
+        Write-Host $row.ID
     #condition to read only Errors
     if ($row.EntryType -like '*Error*')
     {
