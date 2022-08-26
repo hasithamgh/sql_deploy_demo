@@ -1,3 +1,26 @@
+#import CSV data using Import-CSV cmdlet
+#specify path
+$path = "./csv/data.csv"
+#import csv file and specify specific columns you want to import using -Header 
+$file = Import-Csv $path -Delimiter "," 
+#$file
+#loop all the rows in file
+foreach ($row in $file)
+{
+    #condition to read only Errors
+    if ($row.EntryType -like '*Error*')
+    {
+        Write-Host "---------------------------------------------"
+        Write-Host $row.EntryType
+        Write-Host $row.TimeGenerated
+        Write-Host $row.Message
+        Write-Host "---------------------------------------------"
+    }
+}
+
+
+
+<#
 $serverName = "LAPTOP4F1K83KS"
 $databaseName = "StudentDetails"
 $tableName = "[dbo].[Demotbl]"
@@ -18,3 +41,4 @@ foreach($Name in $studentName){
   $Command.ExecuteNonQuery()
 }
 $Connection.Close();
+#>
