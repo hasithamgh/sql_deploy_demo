@@ -22,15 +22,20 @@ $Connection.ConnectionString = "Server=tcp:adfskdemo.database.windows.net,1433;I
 $Connection.Open()
 $Command = New-Object System.Data.SQLClient.SQLCommand
 $Command.Connection = $Connection
+<#
 foreach($Name in $studentName){
-  $insertquery="
+  
+}
+#>
+
+$insertquery="
   UPDATE [dbo].[Demotbl]
    SET [Fname] = '$row.Fname'
       ,[Lname] = '$row.Lname'
- WHERE ID = 1"
+ WHERE ID = $row.ID"
   $Command.CommandText = $insertquery
   $Command.ExecuteNonQuery()
-}
+
 $Connection.Close();
     
 
