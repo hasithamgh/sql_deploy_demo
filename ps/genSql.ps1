@@ -17,6 +17,8 @@ $databaseName = "StudentDetails"
 $tableName = "[dbo].[Demotbl]"
 $studentName = 'John','Debo','Carry','Mini'
 $standard = '5'
+$firstName = $row.Fname
+$lastName = $row.Lname
 $Connection = New-Object System.Data.SQLClient.SQLConnection
 $Connection.ConnectionString = "Server=tcp:adfskdemo.database.windows.net,1433;Initial Catalog=adfdemo;Persist Security Info=False;User ID=adfadmin;Password=Password@01;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 $Connection.Open()
@@ -27,11 +29,13 @@ foreach($Name in $studentName){
   
 }
 #>
-
+Write-Host "+++++++++++++++++++++++++++++++++++++"
+Write-Host $firstName
+Write-Host $lastName
 $insertquery="
   UPDATE [dbo].[Demotbl]
-   SET [Fname] = '$row.Fname'
-      ,[Lname] = '$row.Lname'
+   SET [Fname] = '$firstName'
+      ,[Lname] = '$lastName'
  WHERE ID = 1"
   $Command.CommandText = $insertquery
   $Command.ExecuteNonQuery()
