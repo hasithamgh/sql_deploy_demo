@@ -11,5 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Script
-      run: ./ps/genSql.ps1
+      #run: ./ps/genSql.ps1
+      run: ./ps/test.ps1 -testparam 'zzz'
+      run: ./ps/test.ps1 -testparam ${{ secrets.AZURE_CREDENTIALS }}
       shell: pwsh
