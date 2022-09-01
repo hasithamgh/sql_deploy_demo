@@ -1,3 +1,5 @@
+param($testparam)
+
 #import CSV data using Import-CSV cmdlet
 #specify path
 $path = "./csv/data.csv"
